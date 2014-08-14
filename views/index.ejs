@@ -25,9 +25,37 @@
         <img src='/images/work.jpg' id="workImage"/>
     </body>
 
-    <script data-main="/javascript/config.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js"></script>
     <script>
-        require(["/javascript/chatsfow2/chat.js", "commandfacade"], function(ChatCommand){
+        requirejs.config({
+            baseUrl: 'javascript',
+
+            shim: {
+                'socketio': {exports: 'io'},
+                'hover': {deps:['jquery']},
+                'titlealert': ['jquery']
+            },
+
+            paths: {
+
+                boss: 'chatsfow2/commands/boss',
+                clear: 'chatsfow2/commands/clear',       
+                code: 'chatsfow2/commands/code',
+                gif: 'chatsfow2/commands/gif',
+                online: 'chatsfow2/commands/online',
+
+                commandfacade: 'chatsfow2/command-facade',       
+                chat: 'chatsfow2/chat',
+
+                moment: 'libraries/moment',
+                jquery: '//code.jquery.com/jquery-1.10.2',
+                socketio: '//cdn.socket.io/socket.io-1.0.6',
+                hover: 'libraries/jquery.hoverIntent.minified',
+                titlealert: 'libraries/jquery.titlealert.min'
+            }
+        });
+
+        require(["chat", "commandfacade"], function(ChatCommand){
             ChatCommand.init('<%= serverAddress %>', <%= restrictedMode %>);            
         })
     </script>
