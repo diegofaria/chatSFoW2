@@ -29,13 +29,6 @@
     <script>
         requirejs.config({
             baseUrl: 'javascript',
-
-            shim: {
-                'socketio': {exports: 'io'},
-                'hover': {deps:['jquery']},
-                'titlealert': ['jquery']
-            },
-
             paths: {
 
                 boss: 'chatsfow2/commands/boss',
@@ -50,8 +43,14 @@
                 moment: 'libraries/moment',
                 jquery: '//code.jquery.com/jquery-1.10.2',
                 socketio: '//cdn.socket.io/socket.io-1.0.6',
-                hover: 'libraries/jquery.hoverIntent.minified',
+                hoverIntent: '//cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/2013.03.11/hoverintent',
                 titlealert: 'libraries/jquery.titlealert.min'
+            },
+
+            shim: {
+                'jquery.hoverIntent': ['jquery'],
+                'socketio': {exports: 'io'},
+                'titlealert': ['jquery']
             }
         });
 
