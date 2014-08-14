@@ -1,4 +1,4 @@
-var OnlineCommand = function() {
+define(['chat'], function(ChatCommand){
 
     ChatCommand.on('usersOnlineResponse', function(clients) {
         ChatCommand.scrollToBottom();
@@ -14,9 +14,10 @@ var OnlineCommand = function() {
         $("#inputMessage").val("");
     });
 
-	return {
-		execute: function () {
-			ChatCommand.emit("usersOnlineRequest", {});
-		}
-	}
-}();
+    return {
+        execute: function () {
+            ChatCommand.emit("usersOnlineRequest", {});
+        }
+    }
+    
+});

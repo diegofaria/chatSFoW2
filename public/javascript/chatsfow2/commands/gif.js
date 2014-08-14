@@ -1,4 +1,4 @@
-var GifnailCommand = function (){
+define(['jquery'], function($){
     const INITIAL_OFFSET = 0;
     var $inputMessage = $("#inputMessage");
     var $chatForm = $("#chatForm");

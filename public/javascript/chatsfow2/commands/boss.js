@@ -1,4 +1,4 @@
-var BossCommand = function() {
+define(['jquery'], function($){
 	var $workImage = $("#workImage");
 
 	return {

@@ -1,4 +1,4 @@
-var CodeCommand = function() {
+define(['jquery', 'chatcommand'], function($, ChatCommand){
 
     var $chatForm = $("#chatForm");
     var $codeForm = $("#codeForm");

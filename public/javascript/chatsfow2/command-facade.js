@@ -1,13 +1,17 @@
-$(function(){
+define(['jquery', 'boss', 'gif'
+	'clear', 'online', 'code'
+	'chat'], function($, BossCommand, GifnailCommand, 
+		ClearCommand, OnlineCommand, CodeCommand, 
+		ChatCommand){
 
-	const COMMANDS = {
+	var COMMANDS = {
 		"!boss": BossCommand,
 	    "!gif": GifnailCommand,
 	    "!clear": ClearCommand,
 	    "!online": OnlineCommand,
         "!code": CodeCommand,
         "!chat": ChatCommand
-    }
+    };
 
 	$("#chatForm").on("submit", function(event) {
 		var $input = $("#inputMessage");

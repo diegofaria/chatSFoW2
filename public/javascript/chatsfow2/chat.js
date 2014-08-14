@@ -1,4 +1,4 @@
-var ChatCommand = function(){
+define(['jquery','socketio','moment'], function($, io, moment) {
 
     var connection, userEmail;
     var $inputMessage = $("#inputMessage");
@@ -186,6 +186,6 @@ var ChatCommand = function(){
     function removeHTMLTags(text) {
         var regex = /(<([^>]+)>)/ig
         return text.replace(regex, "").replace(/(&nbsp)*/g,"");
-    }                
-
-}();
+    }
+                    
+})

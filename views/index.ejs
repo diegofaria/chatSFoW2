@@ -24,23 +24,12 @@
         </div>
         <img src='/images/work.jpg' id="workImage"/>
     </body>
-    <script src="//cdn.socket.io/socket.io-1.0.6.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
-    <script src="/javascript/libraries/jquery.titlealert.min.js"></script>
-    <script src="/javascript/libraries/jquery.hoverIntent.minified.js"></script>
-    <script src="/javascript/libraries/moment.js"></script>
-    <script src="/javascript/chatsfow2/chat.js"></script>
+
+    <script data-main="/javascript/config.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js"></script>
     <script>
-        ChatCommand.init('<%= serverAddress %>', <%= restrictedMode %>);
+        require(["/javascript/chatsfow2/chat.js", "commandfacade"], function(ChatCommand){
+            ChatCommand.init('<%= serverAddress %>', <%= restrictedMode %>);            
+        })
     </script>
-    <!-- chat.js must be before all commands imports -->
-    <script src="/javascript/chatsfow2/commands/gif.js"></script>
-    <script src="/javascript/chatsfow2/commands/code.js"></script>
-    <script src="/javascript/chatsfow2/commands/clear.js"></script>
-    <script src="/javascript/chatsfow2/commands/online.js"></script>
-    <script src="/javascript/chatsfow2/commands/boss.js"></script>
-    <!-- command-facade.js must be the last import -->
-    <script src="/javascript/chatsfow2/command-facade.js"></script>
+
 </html>
